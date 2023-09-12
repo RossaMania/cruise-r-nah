@@ -1,8 +1,19 @@
 import React from 'react'
+import DarkModeSwitch from './DarkModeSwitch'
+import MenuItem from './MenuItem'
 
 function Header() {
   return (
-    <div>This is the Header.</div>
+    <div>
+      <div>
+        {/* Menu */}
+        <MenuItem />
+      </div>
+      <div>
+        <DarkModeSwitch />
+        {/* Logo */}
+      </div>
+    </div>
   )
 }
 
