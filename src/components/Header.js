@@ -22,11 +22,13 @@ function Header() {
         {/* Logo */}
         <Link href="/">
           <h2 className="flex hover:border-4 border-fuchsia-600">
-            <span className="font-bold text-white bg-emerald-400 py-1 px-1">
+            <span className="font-bold text-white dark:font-bold dark:text-white bg-emerald-400 py-1 px-1">
               Cruise
             </span>
-            <span className="font-bold text-white bg-black p-0.5">-r-</span>
-            <span className="font-bold text-white bg-red-500 py-1 px-1">
+            <span className="font-bold text-white dark:font-bold dark:text-white bg-black p-0.5">
+              -r-
+            </span>
+            <span className="font-bold text-white dark:font-bold dark:text-white bg-red-500 py-1 px-1">
               Nah
             </span>
           </h2>
