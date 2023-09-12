@@ -3,6 +3,7 @@ import DarkModeSwitch from "./DarkModeSwitch";
 import MenuItem from "./MenuItem";
 import { PiFilmSlateDuotone } from "react-icons/pi";
 import { PiHouseBold } from "react-icons/pi";
+import Link from "next/link";
 
 function Header() {
   return (
@@ -16,9 +17,20 @@ function Header() {
           Icon={PiFilmSlateDuotone}
         />
       </div>
-      <div className="flex items-center space-x-5">
+      <div className="flex items-center space-x-5  mx-4 lg:mx-6">
         <DarkModeSwitch />
         {/* Logo */}
+        <Link href="/">
+          <h2 className="flex hover:border-4 border-fuchsia-600">
+            <span className="font-bold text-white bg-emerald-400 py-1 px-1">
+              Cruise
+            </span>
+            <span className="font-bold text-white bg-black p-0.5">-r-</span>
+            <span className="font-bold text-white bg-red-500 py-1 px-1">
+              Nah
+            </span>
+          </h2>
+        </Link>
       </div>
     </div>
   );
