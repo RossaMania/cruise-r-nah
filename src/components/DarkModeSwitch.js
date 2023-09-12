@@ -24,9 +24,15 @@ const DarkModeSwitch = () => {
     <div>
       {mounted &&
         (currentTheme === "dark" ? (
-          <MdLightMode onClick={() => setTheme("light")} />
+          <MdLightMode
+            className="text-xl cursor-pointer hover:text-red-500"
+            onClick={() => setTheme("light")}
+          />
         ) : (
-          <BsFillMoonStarsFill onClick={() => setTheme("dark")} />
+          <BsFillMoonStarsFill
+            className="text-xl cursor-pointer hover:text-red-500"
+            onClick={() => setTheme("dark")}
+          />
         ))}
     </div>
   );
