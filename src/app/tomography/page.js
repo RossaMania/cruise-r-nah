@@ -1,24 +1,57 @@
-import React from "react";
+"use client";
+
+{/* Here is the url to pull up Tom Cruise movie credits:
+      'https://api.themoviedb.org/3/person/500/movie_credits?language=en-US'; */}
+
+import React, { useEffect, useState } from "react";
 
 const API_KEY = process.env.API_KEY;
 
-const Tomography = async () => {
-  const res = await fetch(
-    `https://api.themoviedb.org/3/person/500/movie_credits?api_key=${API_KEY}&language=en-US`,
-    { next: { revalidate: 21600 } }
-  );
+const Tomography = () => {
+  const [characterMovies, setCharacterMovies] = useState([]);
+  const [selfMovies, setSelfMovies] = useState([]);
 
-  if (!res.ok) {
-    throw new Error(
-      "Failed to fetch that Tom Cruise Tomography. Just watch a 'Mission: Impossible' movie."
-    ); //this will be caught by the error page and passed to the error page as props.
-  }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(
+          `https://api.themoviedb.org/3/person/500/movie_credits?api_key=${API_KEY}&language=en-US`,
+          { next: { revalidate: 21600 } }
+        );
 
-  const data = await res.json();
+        if (!res.ok) {
+          throw new Error(
+            "Failed to fetch that Tom Cruise Tomography. Just watch a 'Mission: Impossible' movie."
+          ); //this will be caught by the error page and passed to the error page as props.
+        }
 
-  console.log(data);
+        const data = await res.json();
+        console.log(data);
 
-  const results = data.results;
+        const results = data.cast;
+
+        if (results) {
+          // Separate movies into movies with Tom Cruise playing a character, and movies with Tom Cruise appearing as himself.
+          const characterMovies = results.filter(
+            (movie) =>
+              movie.character !== "Self" &&
+              movie.character !== "Self (archive footage)"
+          );
+          const selfMovies = results.filter(
+            (movie) =>
+              movie.character === "Self" ||
+              movie.character === "Self (archive footage)"
+          );
+
+          setCharacterMovies(characterMovies);
+          setSelfMovies(selfMovies);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div>
@@ -28,9 +61,18 @@ const Tomography = async () => {
         The data will be all about Tom Cruise, and will be a good way to test
         data fetching.
       </p>
-
-      {/* Here is the url to pull up Tom Cruise movie credits:
-      'https://api.themoviedb.org/3/person/500/movie_credits?language=en-US'; */}
+      <h3>Acting</h3>
+      <ul>
+        {characterMovies.map((movie) => (
+          <li key={movie.id}>{movie.title}</li>
+        ))}
+      </ul>
+      <h3>As Self</h3>
+      <ul>
+        {selfMovies.map((movie) => (
+          <li key={movie.id}>{movie.title}</li>
+        ))}
+      </ul>
     </div>
   );
 };
