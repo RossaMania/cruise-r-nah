@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React from "react";
 
+import { PiShootingStarFill } from "react-icons/pi";
+
 const getMovie = async (movieId) => {
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.API_KEY}`
@@ -48,7 +50,7 @@ const MoviePage = async ({ params }) => {
   return convertedMovieLength;
 }
 
-const helpfulMovieLength = convertTime(movie.runtime);
+const helpfulMovieLength = convertTime();
 
   return (
     <div>
@@ -65,8 +67,10 @@ const helpfulMovieLength = convertTime(movie.runtime);
             blurDataURL="/spinner.svg"
           />
           <div className="p-2">
-            <h1 className="text-lg mb-3 font-bold">{movie.title}</h1>
-            <h2>{movie.tagline}</h2>
+            <h1 className="text-3xl mb-2 font-bold dark:text-red-600 text-red-400">
+              {movie.title}
+            </h1>
+            <h2 className="text-xl italic mb-2">{movie.tagline}</h2>
             <p className="text-lg mb-3">
               <span className="font-semibold mr-1">Length:</span>
               {helpfulMovieLength}
@@ -79,9 +83,14 @@ const helpfulMovieLength = convertTime(movie.runtime);
               <span className="font-semibold mr-1">Release Date:</span>
               {formattedReleaseDate}
             </p>
-            <p className="mb-3">
-              <span className="font-semibold mr-1">Rating:</span>
-              {roundedViewerScore}
+            <p className="flex items-center">
+              <span className="font-semibold pr-1">User Rating</span>
+              <span className="text-3xl text-red-400 dark:text-red-400 px-1">
+                <PiShootingStarFill />
+              </span>
+              <span className="text-2xl px-1">
+                {roundedViewerScore ? roundedViewerScore : "No rating."}
+              </span>
             </p>
           </div>
         </div>
