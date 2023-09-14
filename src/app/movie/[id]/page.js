@@ -16,9 +16,9 @@ const MoviePage = async ({ params }) => {
   const movie = await getMovie(movieId);
 
   // Parse the release date string as a Date object
-  let releaseDate = new Date(result.release_date);
+  let releaseDate = new Date(movie.release_date);
 
-  if (result.release_date === "") {
+  if (movie.release_date === "") {
     formattedReleaseDate = "Release date unknown.";
   } else {
     // Extract the year, month, and day
