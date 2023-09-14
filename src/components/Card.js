@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 
 import { PiShootingStarFill } from "react-icons/pi";
@@ -29,13 +30,15 @@ const Card = ({result}) => {
 
   return (
     <div>
-      <h2>{result.title}</h2>
-      <p>as {result.character || result.job}</p>
-      <p>
-        {roundedViewerScore ? roundedViewerScore : "No rating."}
-        <PiShootingStarFill />
-        {formattedReleaseDate}
-      </p>
+      <Link href={`/movie/${result.id}`}>
+        <h2>{result.title}</h2>
+        <p>as {result.character || result.job}</p>
+        <p>
+          {roundedViewerScore ? roundedViewerScore : "No rating."}
+          <PiShootingStarFill />
+          {formattedReleaseDate}
+        </p>
+      </Link>
     </div>
   );
 }
