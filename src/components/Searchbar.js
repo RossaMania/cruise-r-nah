@@ -8,8 +8,19 @@ const Searchbar = () => {
 
   const router = useRouter();
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(search);
+
+    if (!search) return;
+
+    router.push(`/search/${search}`);
+
+    setSearch("")
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <input
         value={search}
         onChange={(e) => setSearch(e.target.value)}
