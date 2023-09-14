@@ -1,3 +1,4 @@
+import Results from '@/components/Results';
 import React from 'react'
 
 const SearchPage = async ({ params }) => {
@@ -12,9 +13,14 @@ const SearchPage = async ({ params }) => {
 
   const data = await res.json();
 
-  const results = data.results;
+  const searchResults = data.results;
   return (
-    <div>This is the page for search results.</div>
+    <div>
+      {searchResults && searchResults.length === 0 && (
+        <h1>Oh no! No results found!</h1>
+      )}
+      {searchResults && <Results results={searchResults} />}
+    </div>
   )
 }
 
