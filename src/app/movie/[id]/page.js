@@ -12,7 +12,43 @@ const getMovie = async (movieId) => {
 const MoviePage = async ({ params }) => {
   const movieId = params.id;
   const movie = await getMovie(movieId);
-  console.log(movie);
+
+  // Parse the release date string as a Date object
+  let releaseDate = new Date(movie.release_date);
+
+  if (movie.release_date === "") {
+    formattedReleaseDate = "Release date unknown.";
+  } else {
+    // Extract the year, month, and day
+    var year = releaseDate.getFullYear();
+    var month = String(releaseDate.getMonth() + 1); // Month is 0-based, so we add 1
+    var day = String(releaseDate.getDate());
+
+    // Format the date as MM/DD/YYYY
+    var formattedReleaseDate = `${month}/${day}/${year}`;
+  }
+
+  //Change the vote_average into it's own const.
+  const viewerScore = movie.vote_average;
+
+  //Use Math.round on that const, then have that be it's own const. That const will be the new score.
+  const roundedViewerScore = Math.round(viewerScore * 10) / 10;
+
+  const convertTime = () => {
+  const movieHour = Math.floor(movie.runtime / 60);
+  const movieMinutes = movie.runtime % 60;
+
+  let convertedMovieLength;
+
+  if (movieHour > 1) {
+    convertedMovieLength = `${movieHour} hours, ${movieMinutes} minutes`;
+  } else {
+    convertedMovieLength = `${movieHour} hour, ${movieMinutes} minutes`;
+  }
+  return convertedMovieLength;
+}
+
+const helpfulMovieLength = convertTime(movie.runtime);
 
   return (
     <div>
@@ -30,9 +66,10 @@ const MoviePage = async ({ params }) => {
           />
           <div className="p-2">
             <h1 className="text-lg mb-3 font-bold">{movie.title}</h1>
+            <h2>{movie.tagline}</h2>
             <p className="text-lg mb-3">
               <span className="font-semibold mr-1">Length:</span>
-              {movie.runtime}
+              {helpfulMovieLength}
             </p>
             <p className="text-lg mb-3">
               <span className="font-semibold mr-1">Overview:</span>
@@ -40,11 +77,11 @@ const MoviePage = async ({ params }) => {
             </p>
             <p className="mb-3">
               <span className="font-semibold mr-1">Release Date:</span>
-              {movie.release_date}
+              {formattedReleaseDate}
             </p>
             <p className="mb-3">
               <span className="font-semibold mr-1">Rating:</span>
-              {movie.vote_average}
+              {roundedViewerScore}
             </p>
           </div>
         </div>
