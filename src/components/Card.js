@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 
@@ -30,6 +31,16 @@ const Card = ({result}) => {
 
   return (
     <div>
+      <Image
+        src={`https://image.tmdb.org/t/p/original/${result.poster_path}`}
+        width={342}
+        height={542}
+        alt="No poster found!"
+        className="group-hover:opacity-80 transition-opacity duration-200"
+        style={{ maxWidth: "100%", height: "auto" }}
+        placeholder="blur"
+        blurDataURL="/spinner.svg"
+      />
       <Link href={`/movie/${result.id}`}>
         <h2>{result.title}</h2>
         <p>as {result.character || result.job}</p>
