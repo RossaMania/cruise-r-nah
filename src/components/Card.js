@@ -41,7 +41,7 @@ const Card = ({ result }) => {
           {result.title}
         </h2>
         <h2>({releaseYear ? releaseYear : "????"})</h2>
-        <p className="italic mb-1">as {result.character || result.job}</p>
+        <p className="italic mb-1">as {result.character || result.job || "????"}</p>
         <p className="flex items-center mb-1">
           <span className="text-3xl text-red-400 dark:text-red-400 px-1">
             <PiShootingStarFill />
