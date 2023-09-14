@@ -16,18 +16,18 @@ const MoviePage = async ({ params }) => {
   const movie = await getMovie(movieId);
 
   // Parse the release date string as a Date object
-  let releaseDate = new Date(movie.release_date);
+  let releaseDate = new Date(result.release_date);
 
-  if (movie.release_date === "") {
+  if (result.release_date === "") {
     formattedReleaseDate = "Release date unknown.";
   } else {
     // Extract the year, month, and day
-    var year = releaseDate.getFullYear();
-    var month = String(releaseDate.getMonth() + 1); // Month is 0-based, so we add 1
-    var day = String(releaseDate.getDate());
+    var releaseYear = releaseDate.getFullYear();
+    var releaseMonth = String(releaseDate.getMonth() + 1); // Month is 0-based, so we add 1
+    var releaseDay = String(releaseDate.getDate());
 
     // Format the date as MM/DD/YYYY
-    var formattedReleaseDate = `${month}/${day}/${year}`;
+    var formattedReleaseDate = `${releaseMonth}/${releaseDay}/${releaseYear}`;
   }
 
   //Change the vote_average into it's own const.
@@ -37,20 +37,20 @@ const MoviePage = async ({ params }) => {
   const roundedViewerScore = Math.round(viewerScore * 10) / 10;
 
   const convertTime = () => {
-  const movieHour = Math.floor(movie.runtime / 60);
-  const movieMinutes = movie.runtime % 60;
+    const movieHour = Math.floor(movie.runtime / 60);
+    const movieMinutes = movie.runtime % 60;
 
-  let convertedMovieLength;
+    let convertedMovieLength;
 
-  if (movieHour > 1) {
-    convertedMovieLength = `${movieHour} hours, ${movieMinutes} minutes`;
-  } else {
-    convertedMovieLength = `${movieHour} hour, ${movieMinutes} minutes`;
-  }
-  return convertedMovieLength;
-}
+    if (movieHour > 1) {
+      convertedMovieLength = `${movieHour} hours, ${movieMinutes} minutes`;
+    } else {
+      convertedMovieLength = `${movieHour} hour, ${movieMinutes} minutes`;
+    }
+    return convertedMovieLength;
+  };
 
-const helpfulMovieLength = convertTime();
+  const helpfulMovieLength = convertTime();
 
   return (
     <div>
