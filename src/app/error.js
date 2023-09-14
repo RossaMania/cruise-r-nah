@@ -11,7 +11,9 @@ const Error = ({ error, reset }) => {
       <h2>Something went wrong!</h2>
       <button
         className="hover:text-red-600 underline underline-offset-6 decoration-2"
-        onClick={() => reset()}
+        onClick={
+          // Attempt to recover by trying to re-render the segment
+          () => reset()}
       >
         Try Again!
       </button>
