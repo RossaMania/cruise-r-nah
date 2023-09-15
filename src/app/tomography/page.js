@@ -3,7 +3,7 @@ import React from "react";
 
 const API_KEY = process.env.API_KEY;
 
-const Tomography = async () => {
+const getTomCruiseMovies = async () => {
 
   const res = await fetch(
     `https://api.themoviedb.org/3/person/500/movie_credits?api_key=${API_KEY}&language=en-US`,
@@ -12,11 +12,18 @@ const Tomography = async () => {
 
   if (!res.ok) {
     throw new Error(
-      "Failed to fetch that Tom Cruise Tomography. Just watch a 'Mission: Impossible' movie."
+      "Failed to fetch Tom Cruise movies. Just watch a 'Mission: Impossible' movie."
     ); //this will be caught by the error page and passed to the error page as props.
   }
 
-  const data = await res.json();
+  return res.json();
+
+}
+
+const Tomography = async () => {
+
+  const data = await getTomCruiseMovies()
+
   console.log(data);
 
   const castResults = data.cast;
