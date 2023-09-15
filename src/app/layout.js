@@ -12,10 +12,9 @@ export default function RootLayout({ children }) {
     <html>
       <body>
         <Providers>
+
           {/* Header */}
           <Header />
-
-          {/* Navbar */}
 
           {children}
         </Providers>

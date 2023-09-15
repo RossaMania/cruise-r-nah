@@ -32,9 +32,9 @@ const Tomography = async () => {
         data fetching.
       </p>
       <h3>In Front of the Camera</h3>
-      <Results results={castResults}/>
+      <Results castResults={castResults} />
       <h3>Behind the Scenes</h3>
-      <Results results={crewResults}/>
+      <Results crewResults={crewResults}/>
 
     </div>
   );
