@@ -29,8 +29,8 @@ const Results = async ({ castResults, crewResults, searchResults }) => {
   const cruiseCrewData = data.crew;
 
   const tomCruiseMovieTitles = [
-    cruiseCastData.map((result) => result.title),
-    cruiseCrewData.map((result) => result.title),
+    ...cruiseCastData.map((cruiseResult) => cruiseResult.title),
+    ...cruiseCrewData.map((cruiseResult) => cruiseResult.title),
   ];
 
   return (
@@ -52,12 +52,31 @@ const Results = async ({ castResults, crewResults, searchResults }) => {
       )}
 
       {searchResults && searchResults.length > 0 && (
+        <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 max-w-6xl mx-auto py-4">
+          {searchResults.map((result) => {
+            if (tomCruiseMovieTitles.includes(result.title)) {
+              return (
+                <Card key={result.id} result={result} />
+              );
+            } else {
+              // Render an error message for movies not related to Tom Cruise
+              return (
+                <div key={result.id}>
+                  <p>Error: This movie is not related to Tom Cruise.</p>
+                </div>
+              );
+            }
+          })}
+        </div>
+      )}
+
+      {/* {searchResults && searchResults.length > 0 && (
         <div className="sm:grid sm:grid-cols-2 lg: grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 max-w-6xl mx-auto py-4">
           {searchResults.map((result) => (
             <Card key={result.id} result={result} />
           ))}
         </div>
-      )}
+      )} */}
     </div>
   );
 };
