@@ -53,7 +53,6 @@ const MoviePage = async ({ params }) => {
   const helpfulMovieLength = convertTime();
 
   return (
-    <div>
       <div className="w-full">
         <div className="p-4 md:pt-8 flex flex-col md:flex-row items-center content-center max-w-6xl mx-auto md:space-x-6">
           <Image
@@ -95,7 +94,6 @@ const MoviePage = async ({ params }) => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
