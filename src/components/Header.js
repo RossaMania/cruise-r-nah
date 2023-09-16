@@ -21,15 +21,13 @@ function Header() {
         <DarkModeSwitch />
         {/* Logo */}
         <Link href="/">
-          <h2 className="flex hover:border-4 border-fuchsia-600">
-            <span className="font-bold text-white dark:font-bold dark:text-white bg-emerald-400 py-1 px-1">
+          <h2 className="flex border-4 border-red-700 rounded-full bg-red-600 p-5 hover:border-4 hover:border-blue-500">
+            <span className="font-bold text-white dark:font-bold dark:text-white text-center -rotate-45">
               Cruise
-            </span>
-            <span className="font-bold text-white dark:font-bold dark:text-white bg-black p-0.5">
+              <br />
               -r-
-            </span>
-            <span className="font-bold text-white dark:font-bold dark:text-white bg-red-500 py-1 px-1">
-              Nah
+              <br />
+              NAH!
             </span>
           </h2>
         </Link>
