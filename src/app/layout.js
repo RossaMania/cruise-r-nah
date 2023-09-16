@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Providers from './Providers'
 import './globals.css'
+import ScrollButton from '@/components/ScrollButton';
 
 export const metadata = {
   title: "Cruise R Nah app.",
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
           <Header />
 
           {children}
+          <ScrollButton />
         </Providers>
       </body>
     </html>

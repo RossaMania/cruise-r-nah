@@ -4,7 +4,6 @@ import React from "react";
 const API_KEY = process.env.API_KEY;
 
 const getTomCruiseMovies = async () => {
-
   const res = await fetch(
     `https://api.themoviedb.org/3/person/500/movie_credits?api_key=${API_KEY}&language=en-US`,
     { next: { revalidate: 21600 } }
@@ -17,12 +16,10 @@ const getTomCruiseMovies = async () => {
   }
 
   return res.json();
-
-}
+};
 
 const Tomography = async () => {
-
-  const data = await getTomCruiseMovies()
+  const data = await getTomCruiseMovies();
 
   console.log(data);
 
@@ -32,17 +29,21 @@ const Tomography = async () => {
 
   return (
     <div>
-      <h2>This is the Tomography page.</h2>
-      <p>This page is going to be a data fetch from The Movie Database.</p>
-      <p>
-        The data will be all about Tom Cruise, and will be a good way to test
-        data fetching.
-      </p>
-      <h3>In Front of the Camera</h3>
+      <h1 className="text-4xl font-bold m-6 text-red-500">
+        What movies has Tom Cruise done, anyway?
+      </h1>
+      <h2 className="text-xl m-3">
+        The Tomography page celebrates the entire cinematic catalogue of Tom
+        Cruise! Listed first are the motion picture events that Tom Cruise has
+        acted in. After that are the stories that Tom Cruise helped bring to the
+        silver screen.
+      </h2>
+      <h3 className="text-4xl font-bold m-6 text-red-500">
+        In Front of the Camera
+      </h3>
       <Results castResults={castResults} />
-      <h3>Behind the Scenes</h3>
-      <Results crewResults={crewResults}/>
-
+      <h3 className="text-4xl font-bold m-6 text-red-500">Behind the Scenes</h3>
+      <Results crewResults={crewResults} />
     </div>
   );
 };
