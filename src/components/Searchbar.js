@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import Button from "./Button";
 
 const Searchbar = () => {
   const [search, setSearch] = useState("");
@@ -31,7 +32,7 @@ const Searchbar = () => {
         placeholder="Search keywords..."
         className="w-full h-10 rounded-sm placeholder-slate-100 outline-none bg-slate-500 flex-1"
       />
-      <button className="bg-red-700 p-2 text-bold text-slate-100">Search</button>
+      <Button text="Search" />
     </form>
   );
 };
