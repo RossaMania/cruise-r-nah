@@ -29,7 +29,7 @@ const Searchbar = () => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         type="text"
-        placeholder="Search keywords..."
+        placeholder="Search by title..."
         className="w-full h-10 rounded-sm placeholder-slate-100 outline-none bg-slate-500 flex-1"
       />
       <Button text="Search" />
