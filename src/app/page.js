@@ -17,7 +17,7 @@ export default function Home() {
         of Tom Cruise movies that Tom Cruise acted in or worked on behind the
         scenes.
       </h2>
-      <h2 className="text-xl m-2">
+      <h2 className="text-xl my-6">
         This product uses the TMDB API but is not endorsed or certified by TMDB.
         We do not claim ownership of any of the images or data in the API.
       </h2>
