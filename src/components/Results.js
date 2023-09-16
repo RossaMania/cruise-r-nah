@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card";
-import DangerZone from "./Dangerzone";
+import DangerZone from "./DangerZone";
 
 const API_KEY = process.env.API_KEY;
 

@@ -1,12 +1,13 @@
 import React from 'react'
 
-const Button = (text) => {
+const Button = ({ text, onClick }) => {
   return (
-    <div>
-      <button className="bg-red-700 p-2 text-bold text-slate-100">
+    <button
+      className="bg-red-700 p-2 font-bold text-slate-100"
+      onClick={onClick}
+    >
       {text}
-      </button>
-    </div>
+    </button>
   );
 }
 
