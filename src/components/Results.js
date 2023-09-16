@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "./Card";
+import DangerZone from "./Dangerzone";
 
 const API_KEY = process.env.API_KEY;
 
@@ -41,9 +42,11 @@ const Results = async ({ castResults, crewResults, searchResults }) => {
     if (matchingMovie) {
       return <Card key={matchingMovie.id} result={matchingMovie} />;
     } else {
-      <div>
-        <p>Error: This movie does not have Tom Cruise!</p>
-      </div>
+      return (
+        <div>
+          <DangerZone />
+        </div>
+      );
     }
   }
 
