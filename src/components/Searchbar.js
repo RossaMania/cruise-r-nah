@@ -23,14 +23,14 @@ const Searchbar = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex max-w-5xl mx-auto justify-between items-center px-4"
+      className="flex max-w-5xl mx-auto justify-between items-center px-5"
     >
       <input
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         type="text"
         placeholder="Search by title..."
-        className="w-full h-10 rounded-sm placeholder-slate-100 outline-none bg-slate-500 flex-1"
+        className="w-full h-10 rounded-sm placeholder-slate-100 outline-none bg-slate-500 flex-1 p-2"
       />
       <Button text="Search" />
     </form>
