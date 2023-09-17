@@ -1,3 +1,20 @@
+# Cruise R Nah?
+
+Is it a movie that Tom Cruise was involved with, or not?
+
+Just type the title of the movie you're curious about into the search bar, and click that Search button!
+
+# Features
+
+- Light mode and Dark mode!
+
+- Search functionality with The Movie Database! This product uses the TMDB API but is not endorsed or certified by TMDB.
+
+- A "Tomography" page that lists all of the movies Tom Cruise has been a part of--either as a cast member or crew member!
+
+- Select details on each Tom Cruise movie!
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
