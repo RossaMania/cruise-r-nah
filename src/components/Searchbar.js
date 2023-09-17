@@ -30,7 +30,7 @@ const Searchbar = () => {
         onChange={(e) => setSearch(e.target.value)}
         type="text"
         placeholder="Search by title..."
-        className="w-full h-10 rounded-sm placeholder-slate-100 outline-none bg-slate-500 flex-1 p-2"
+        className="w-full h-10 rounded-sm placeholder-slate-100 outline-none bg-slate-500 flex-1 p-2 text-red-200"
       />
       <Button text="Search" />
     </form>
