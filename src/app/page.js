@@ -12,7 +12,7 @@ export default function Home() {
         button to find out!
       </h2>
       <Searchbar />
-      <h2 className="text-xl m-2">
+      <h2 className="text-2xl m-2 p-3">
         Or, you can check out the Tomography page featuring a comprehensive list
         of Tom Cruise movies that Tom Cruise acted in or worked on behind the
         scenes.
