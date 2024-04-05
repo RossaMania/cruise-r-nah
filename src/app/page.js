@@ -4,7 +4,6 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
-      <Searchbar />
       <h1 className="text-4xl font-bold m-6 text-red-500">
         Is it a Tom Cruise movie, or nah?
       </h1>
@@ -12,6 +11,7 @@ export default function Home() {
         Enter the title of a movie into the search bar, and click that Search
         button to find out!
       </h2>
+      <Searchbar />
       <h2 className="text-xl m-2">
         Or, you can check out the Tomography page featuring a comprehensive list
         of Tom Cruise movies that Tom Cruise acted in or worked on behind the
