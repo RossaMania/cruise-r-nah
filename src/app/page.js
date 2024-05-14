@@ -7,7 +7,7 @@ export default function Home() {
       <h1 className="text-4xl font-bold m-6 text-red-500">
         Is it a Tom Cruise movie, <span className="text-4xl font-bold m-6 text-red-600">or nah?</span>
       </h1>
-      <h2 className="text-2xl m-2">
+      <h2 className="text-2xl m-2 p-3">
         Enter the title of a movie into the search bar, and click that Search
         button to find out!
       </h2>
