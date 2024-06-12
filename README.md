@@ -1,3 +1,5 @@
+Thank you for checking out my project! Connect with me on LinkedIn! https://www.linkedin.com/in/ross-clettenberg/
+
 # Cruise R Nah?
 
 Is it a movie that Tom Cruise was involved with, or not?
